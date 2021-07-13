@@ -39,17 +39,8 @@ function AddContact({ onAdd }) {
           onChange={(e) => setPhone(e.target.value)}
         />
       </div>
-      <div className="form-control form-control-check">
-        <label>Set Reminder</label>
-        <input
-          type="checkbox"
-          checked={reminder}
-          value={reminder}
-          onChange={(e) => setReminder(e.currentTarget.checked)}
-        />
-      </div>
 
-      <input type="submit" value="Save Task" className="btn btn-block" />
+      <input type="submit" value="Save Contact" className="btn btn-block" />
     </form>
   );
 }

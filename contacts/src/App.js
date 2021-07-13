@@ -7,24 +7,16 @@ import { useState } from "react";
 function App() {
   const [showAddContact, setShowAddContact] = useState(false);
 
-  const [contacts, setContacts] = useState([
-    {
-      id: 1,
-      name: "Leonard Posa",
-      phone: "0607060064",
-      reminder: true,
-    },
-    {
-      id: 2,
-      name: "Ognjen Kovacevic",
-      phone: "0607060064",
-      reminder: true,
-    },
-  ]);
+  const [contacts, setContacts] = useState(
+    JSON.parse(localStorage.getItem("contacts"))
+  );
+
+  localStorage.setItem("contacts", JSON.stringify(contacts));
+  console.log(contacts);
 
   //Add Contact
 
-  const addContact = (contact) => {
+  const addContact = async (contact) => {
     const id = Math.floor(Math.random() * 10000) + 1;
     const newContact = { id, ...contact };
     setContacts([...contacts, newContact]);
